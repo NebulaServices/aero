@@ -45,7 +45,7 @@ export default class {
 					console.warn(
 						backend.startsWith("/")
 							? "The main backend is down"
-							: `Backend " + ${new URL(backend).hostname} is down`
+							: `Backend ${new URL(backend).hostname} is down`
 					);
 			}
 

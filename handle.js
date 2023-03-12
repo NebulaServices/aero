@@ -235,8 +235,8 @@ async function handle(event) {
         var $aero = {
             config: {
                 prefix: "${prefix}",
-                wsBackends: "${wsBackends}",
-                wrtcBackends: "${wrtcBackends}",
+                wsBackends: ${JSON.stringify(wsBackends)},
+                wrtcBackends: ${JSON.stringify(wrtcBackends)},
                 debug: ${JSON.stringify(debug)},
                 flags: ${JSON.stringify(flags)},
             },
@@ -249,8 +249,11 @@ async function handle(event) {
 
 	<script>
 	// Sanity check
-	if (!("$aero" in window))
+	if (!("$aero" in window)) {
+		// Clear site
+		document.head.innerHTML = "";
 		document.write("Unable to initalize $aero");
+	}
 	</script>
 
     <!-- Injected Aero code -->
